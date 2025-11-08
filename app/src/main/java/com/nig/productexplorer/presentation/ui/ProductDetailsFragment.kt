@@ -59,7 +59,6 @@ class ProductDetailsFragment : Fragment() {
                         }
                         is Resource.Error -> {
                             binding.detailLoadingIndicator.visibility = View.GONE
-                            Toast.makeText(context, resource.message, Toast.LENGTH_LONG).show()
                             resource.data?.let { updateUi(it) }
                         }
                     }
