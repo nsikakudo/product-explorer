@@ -46,7 +46,6 @@ class ProductRepositoryImplTest {
 
     @Test
     fun `getProducts returns success when api and db work correctly`() = runTest {
-        // Given
         val fakeProduct = ProductRemoteEntity(
             id = 1,
             title = "Test Product",
@@ -63,13 +62,11 @@ class ProductRepositoryImplTest {
         whenever(networkMonitor.isOnline).thenReturn(flowOf(true))
         whenever(productApiHelper.getAllProducts()).thenReturn(listOf(fakeProduct))
 
-        // When
         val results = mutableListOf<Resource<List<Product>>>()
         val job = launch { productRepository.getProducts().toList(results) }
         advanceUntilIdle()
         job.cancel()
 
-        // Then
         assertTrue(results.any { it is Resource.Success && it.data!!.contains(fakeDomain) })
     }
 

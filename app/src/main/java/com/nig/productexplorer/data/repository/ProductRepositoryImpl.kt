@@ -96,7 +96,7 @@ class ProductRepositoryImpl @Inject constructor(
             when (apiResult) {
                 is Resource.Success -> {
                     val networkProduct = apiResult.data!!
-                    val dbProduct = networkProduct.toDBEntity() // New mapping
+                    val dbProduct = networkProduct.toDBEntity()
                     productDao.insert(dbProduct)
                 }
                 is Resource.Error -> {

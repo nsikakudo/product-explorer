@@ -45,15 +45,20 @@ class ProductViewModel @Inject constructor(
         viewModelScope.launch {
             productCallUseCases.getProductDetail(productId).collect { resource ->
                 val emittedId = resource.data?.id
-                if (emittedId == currentDetailId) {
-                    _productDetailState.value = resource
-                } else if (resource is Resource.Error && emittedId == null) {
-                    _productDetailState.value = resource
+
+                val isActiveRequest = currentDetailId == productId
+
+                when {
+                    emittedId == currentDetailId -> {
+                        _productDetailState.value = resource
+                    }
+                    resource.data == null && isActiveRequest -> {
+                        _productDetailState.value = resource
+                    }
                 }
             }
         }
     }
-
 
     fun clearDetailState() {
         currentDetailId = null

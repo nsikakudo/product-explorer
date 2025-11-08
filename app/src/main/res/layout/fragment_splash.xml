@@ -20,7 +20,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
             android:text="@string/product_explorer"
+            android:fontFamily="@font/degular_bold"
             android:textSize="25sp"
             android:textStyle="bold" />
 
