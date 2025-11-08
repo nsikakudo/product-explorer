@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".presentation.ui.ProductDetailsFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="48dp">
+
+            <ImageView
+                android:id="@+id/detail_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/detail_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/detail_image"
+                tools:text="Product Title Goes Here" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/category_header"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textStyle="bold"
+                android:text="@string/category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detail_title"
+                />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/category_header"
+                app:layout_constraintStart_toEndOf="@id/category_header"
+                app:layout_constraintTop_toTopOf="@id/category_header"
+                tools:text="Kitchen" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/detail_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textAppearance="?attr/textAppearanceTitleLarge"
+                android:textColor="?attr/colorPrimary"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/category_header"
+                tools:text="$109.95" />
+
+
+            <RatingBar
+                android:id="@+id/detail_rating"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:numStars="5"
+                android:isIndicator="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detail_price"
+                tools:rating="4.5" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/detail_rating_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                app:layout_constraintBottom_toBottomOf="@id/detail_rating"
+                app:layout_constraintStart_toEndOf="@id/detail_rating"
+                app:layout_constraintTop_toTopOf="@id/detail_rating"
+                tools:text="(120 reviews)" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/detail_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                app:layout_constraintTop_toBottomOf="@id/detail_rating"
+                tools:text="This is a long description of the product detailing its features and benefits." />
+
+            <ProgressBar
+                android:id="@+id/detail_loading_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+</layout>
